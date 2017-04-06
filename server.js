@@ -9,7 +9,6 @@ app.get('/', function (req, res) {
     
     var ip = req.ip;
      if (ip.substr(0, 7) == '::ffff:') {
-      console.log("CHEGUEIIIIIIII")
       ip = ip.substr(7);
     }
     
