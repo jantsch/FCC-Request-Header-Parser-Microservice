@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/jantsch/FCC-Request-Header-Parser-Microservice#readme",
   "dependencies": {
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "parse-accept-language": "^1.0.2",
+    "ua-parser": "^0.3.5"
   }
 }
