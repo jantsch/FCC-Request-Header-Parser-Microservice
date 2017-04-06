@@ -2,7 +2,6 @@ var express = require('express')
 var app = express()
 var port = process.env.PORT || 3000;
 var uaParser = require('ua-parser');
-var parseAcceptLanguage = require('parse-accept-language');
 
 
 app.get('/', function (req, res) {
@@ -12,15 +11,14 @@ app.get('/', function (req, res) {
       ip = ip.substr(7);
     }
     
-    var language = parseAcceptLanguage(req);
-    //get an array of preferred languages from http req headers, and take the first one, which is most preferred language
+    var language = req.acceptsLanguages('fr', 'es', 'en-US','pt-BR');
         
     var uaHeader = req.headers['user-agent'];
     
     var agent = uaParser.parseOS(uaHeader).toString();
 
      
-     res.json({"ipaddress": ip, "language": language[0], "software": agent});
+     res.json({"ipaddress": ip, "language": language, "software": agent});
 
 })
 
